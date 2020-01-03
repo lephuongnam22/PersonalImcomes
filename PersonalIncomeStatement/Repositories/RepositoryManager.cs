@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DatabaseManagement.Database;
+using PersonalIncomeStatement.Database;
 
-namespace DatabaseManagement.Repositories
+namespace PersonalIncomeStatement.Repositories
 {
     public class RepositoryManager : IRepositoryManager
     {
@@ -12,9 +12,11 @@ namespace DatabaseManagement.Repositories
         {
             this._databaseContext = databaseContext;
             this.StockRepository = new StockRepository(_databaseContext);
+            this.IncomeRepository = new IncomeRepository(_databaseContext);
         }
 
         public IStockRepository StockRepository { get; }
+        public IIncomeRepository IncomeRepository { get; }
 
         public async Task<int> SaveChanges()
         {

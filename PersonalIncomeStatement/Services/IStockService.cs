@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DatabaseManagement.Models.DTOs;
+using PersonalIncomeStatement.Models.DTOs;
 
-namespace DatabaseManagement.Services
+namespace PersonalIncomeStatement.Services
 {
     public interface IStockService
     {

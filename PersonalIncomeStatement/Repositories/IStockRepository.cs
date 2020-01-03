@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DatabaseManagement.Models.DomainModels;
+using PersonalIncomeStatement.Models.DomainModels;
 
-namespace DatabaseManagement.Repositories
+namespace PersonalIncomeStatement.Repositories
 {
     public interface IStockRepository
     {

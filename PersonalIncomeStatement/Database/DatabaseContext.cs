@@ -1,8 +1,9 @@
 ﻿using System;
 using DatabaseManagement.Models.DomainModels;
 using Microsoft.EntityFrameworkCore;
+using PersonalIncomeStatement.Models.DomainModels;
 
-namespace DatabaseManagement.Database
+namespace PersonalIncomeStatement.Database
 {
     public class DatabaseContext : DbContext
     {
@@ -23,37 +24,37 @@ namespace DatabaseManagement.Database
             modelBuilder.Entity<Income>(entity =>
             {
                 entity.Property(p => p.CreatedAt)
-                    .HasDefaultValueSql("now()");
+                    .HasDefaultValueSql("getdate()");
 
                 entity.Property(p => p.UpdatedAt)
-                    .HasDefaultValueSql("now()");
+                    .HasDefaultValueSql("getdate()");
             });
 
             modelBuilder.Entity<Expense>(entity =>
             {
                 entity.Property(p => p.CreatedAt)
-                    .HasDefaultValueSql("now()");
+                    .HasDefaultValueSql("getdate()");
 
                 entity.Property(p => p.UpdatedAt)
-                    .HasDefaultValueSql("now()");
+                    .HasDefaultValueSql("getdate()");
             });
 
             modelBuilder.Entity<Stock>(entity =>
             {
                 entity.Property(p => p.CreatedAt)
-                    .HasDefaultValueSql("now()");
+                    .HasDefaultValueSql("getdate()");
 
                 entity.Property(p => p.UpdatedAt)
-                    .HasDefaultValueSql("now()");
+                    .HasDefaultValueSql("getdate()");
             });
 
             modelBuilder.Entity<CashTransacstion>(entity =>
             {
                 entity.Property(p => p.CreatedAt)
-                    .HasDefaultValueSql("now()");
+                    .HasDefaultValueSql("getdate()");
 
                 entity.Property(p => p.UpdatedAt)
-                    .HasDefaultValueSql("now()");
+                    .HasDefaultValueSql("getdate()");
             });
         }
     }

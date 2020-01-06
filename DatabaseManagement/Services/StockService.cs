@@ -26,10 +26,10 @@ namespace DatabaseManagement.Services
         {
             return new Stock
             {
-                Money = stockModel.Money,
-                Type = stockModel.TradingType,
-                IncomingFee = stockModel.IncomingFee,
-                TradingFee = stockModel.TradingFee
+                //Money = stockModel.Money,
+                //Type = stockModel.TradingType,
+                //IncomingFee = stockModel.IncomingFee,
+                //TradingFee = stockModel.TradingFee
             };
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System;
-using DatabaseManagement.Models.Enums;
+using PersonalIncomeStatement.Models.Enums;
 
-namespace DatabaseManagement.Models.DTOs
+namespace PersonalIncomeStatement.Models.DTOs
 {
     public class StockModel
     {

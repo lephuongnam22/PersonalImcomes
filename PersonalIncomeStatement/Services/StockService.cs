@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DatabaseManagement.Models.DomainModels;
-using DatabaseManagement.Models.DTOs;
-using DatabaseManagement.Repositories;
+using PersonalIncomeStatement.Models.DomainModels;
+using PersonalIncomeStatement.Models.DTOs;
+using PersonalIncomeStatement.Repositories;
 
-namespace DatabaseManagement.Services
+namespace PersonalIncomeStatement.Services
 {
     public class StockService : IStockService
     {

@@ -2,7 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PersonalIncomeStatement.Infrastructure.Database;
+using PersonalIncomeStatement.Database;
+using PersonalIncomeStatement.Repositories;
+using PersonalIncomeStatement.Services;
+using PersonalIncomeStatement.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,18 +24,26 @@ namespace PersonalIncomeStatement
         private IHost _host;
         public App()
         {
+           
+        }
+
+        private async void Application_Startup(object sender, StartupEventArgs e)
+        {
             _host = new HostBuilder().
-                ConfigureAppConfiguration((context, configurationBuilder) =>
-                {
-                    configurationBuilder.SetBasePath(context.HostingEnvironment.ContentRootPath);
-                    configurationBuilder.AddJsonFile("appsettings.json", optional: false);
-                })
-                .ConfigureServices((context, services) =>
-                {
-                    services.AddSingleton<MainWindow>();
-                   services.AddDbContext<DatabaseContext>(options =>
-                options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
-                }).Build();
+                  ConfigureAppConfiguration((context, configurationBuilder) =>
+                  {
+                      configurationBuilder.SetBasePath(context.HostingEnvironment.ContentRootPath);
+                      configurationBuilder.AddJsonFile("appsettings.json", optional: false);
+                  })
+                  .ConfigureServices((context, services) =>
+                  {
+                      services.AddScoped<IRepositoryManager, RepositoryManager>();
+                      services.AddScoped<MainWindowViewModel, MainWindowViewModel>();
+                      services.AddScoped<IIncomeService, IncomeService>();
+                      services.AddSingleton<MainWindow>();
+                      services.AddDbContext<DatabaseContext>(options =>
+                   options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
+                  }).Build();
 
             using (var serviceScope = _host.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
@@ -41,13 +52,11 @@ namespace PersonalIncomeStatement
                 context.Database.EnsureCreated();
                 //context.Database.Migrate();
             }
-        }
 
-        private async void Application_Startup(object sender, StartupEventArgs e)
-        {
             await _host.StartAsync();
             var mainWindow = _host.Services.GetService<MainWindow>();
+           
             mainWindow.Show();
         }
-}
+    }
 }

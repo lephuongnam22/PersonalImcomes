@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DatabaseManagement.Database;
-using DatabaseManagement.Models.DomainModels;
+using PersonalIncomeStatement.Database;
 using Microsoft.EntityFrameworkCore;
+using PersonalIncomeStatement.Models.DomainModels;
 
-namespace DatabaseManagement.Repositories
+namespace PersonalIncomeStatement.Repositories
 {
     public class StockRepository : IStockRepository
     {

@@ -1,2 +1,9 @@
 /PersonalIncomeStatement/bin
 /PersonalIncomeStatement/obj
+.vs/PersonalIncomeStatement/config/applicationhost.config
+.vs/PersonalIncomeStatement/DesignTimeBuild/.dtbcache
+.vs/PersonalIncomeStatement/v16/.suo
+.vs/PersonalIncomeStatement/v16/Server/sqlite3/db.lock
+.vs/PersonalIncomeStatement/v16/Server/sqlite3/storage.ide
+.vs/PersonalIncomeStatement/v16/Server/sqlite3/storage.ide-shm
+.vs/PersonalIncomeStatement/v16/Server/sqlite3/storage.ide-wal

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using PersonalIncomeStatement.Models.DomainModels;
-using PersonalIncomeStatement.Models.DTOs;
-using PersonalIncomeStatement.Repositories;
+using DatabaseManagement.Models;
+using DatabaseManagement.Repositories;
+using ServiceManagement.DTOs;
 
-namespace PersonalIncomeStatement.Services
+namespace ServiceManagement.Services
 {
     public class StockService : IStockService
     {
@@ -18,7 +20,7 @@ namespace PersonalIncomeStatement.Services
         public async Task<IList<StockModel>> GetAllAsync()
         {
             var stocks = await this._repositoryManager.StockRepository.GetAllAsync();
-            return stocks.Select(n=> MapFromStockToStockModel(n)).ToList();
+            return stocks.Select(n => MapFromStockToStockModel(n)).ToList();
         }
 
         public async Task<int> AddStockAsync(StockModel stockModel)

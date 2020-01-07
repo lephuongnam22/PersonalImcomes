@@ -1,9 +1,8 @@
 ﻿using System;
-using DatabaseManagement.Models.DomainModels;
+using DatabaseManagement.Models;
 using Microsoft.EntityFrameworkCore;
-using PersonalIncomeStatement.Models.DomainModels;
 
-namespace PersonalIncomeStatement.Database
+namespace DatabaseManagement.Database
 {
     public class DatabaseContext : DbContext
     {

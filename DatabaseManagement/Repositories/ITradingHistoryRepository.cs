@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DatabaseManagement.Models.DomainModels;
+using DatabaseManagement.Models;
 
-namespace PersonalIncomeStatement.Repositories
+namespace DatabaseManagement.Repositories
 {
     public interface ITradingHistoryRepository
     {

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using DatabaseManagement.Models.Enums;
 
-namespace DatabaseManagement.Models.DomainModels
+namespace PersonalIncomeStatement.Models.DomainModels
 {
     public class TradingHistory
     {

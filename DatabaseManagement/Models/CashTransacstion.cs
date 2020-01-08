@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PersonalIncomeStatement.Models.DomainModels
+namespace DatabaseManagement.Models
 {
     public class CashTransacstion
     { 

@@ -7,3 +7,5 @@
 .vs/PersonalIncomeStatement/v16/Server/sqlite3/storage.ide
 .vs/PersonalIncomeStatement/v16/Server/sqlite3/storage.ide-shm
 .vs/PersonalIncomeStatement/v16/Server/sqlite3/storage.ide-wal
+DatabaseManagement/bin/
+DatabaseManagement/obj/

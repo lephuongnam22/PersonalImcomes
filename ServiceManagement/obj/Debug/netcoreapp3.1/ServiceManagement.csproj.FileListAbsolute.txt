@@ -1,0 +1,11 @@
+E:\Project\PersonalIncomeStatement\ServiceManagement\bin\Debug\netcoreapp3.1\ServiceManagement.deps.json
+E:\Project\PersonalIncomeStatement\ServiceManagement\bin\Debug\netcoreapp3.1\ServiceManagement.dll
+E:\Project\PersonalIncomeStatement\ServiceManagement\bin\Debug\netcoreapp3.1\ServiceManagement.pdb
+E:\Project\PersonalIncomeStatement\ServiceManagement\bin\Debug\netcoreapp3.1\DatabaseManagement.dll
+E:\Project\PersonalIncomeStatement\ServiceManagement\bin\Debug\netcoreapp3.1\DatabaseManagement.pdb
+E:\Project\PersonalIncomeStatement\ServiceManagement\obj\Debug\netcoreapp3.1\ServiceManagement.csprojAssemblyReference.cache
+E:\Project\PersonalIncomeStatement\ServiceManagement\obj\Debug\netcoreapp3.1\ServiceManagement.AssemblyInfoInputs.cache
+E:\Project\PersonalIncomeStatement\ServiceManagement\obj\Debug\netcoreapp3.1\ServiceManagement.AssemblyInfo.cs
+E:\Project\PersonalIncomeStatement\ServiceManagement\obj\Debug\netcoreapp3.1\ServiceManagement.csproj.CopyComplete
+E:\Project\PersonalIncomeStatement\ServiceManagement\obj\Debug\netcoreapp3.1\ServiceManagement.dll
+E:\Project\PersonalIncomeStatement\ServiceManagement\obj\Debug\netcoreapp3.1\ServiceManagement.pdb

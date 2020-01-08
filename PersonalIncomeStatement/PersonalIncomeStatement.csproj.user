@@ -7,7 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\ExpenseDetailView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\IncomeAddingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ExpenseDetailView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\IncomeAddingView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

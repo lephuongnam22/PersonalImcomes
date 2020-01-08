@@ -1,5 +1,5 @@
-﻿using DatabaseManagement.Models.DomainModels;
-using PersonalIncomeStatement.Services;
+﻿using ServiceManagement.DTOs;
+using ServiceManagement.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace PersonalIncomeStatement.ViewModels
 {
-    public class MainWindowViewModel : AddEditViewModelBase
+    public class IncomeAddingViewModel : AddEditViewModelBase
     {
         private decimal money;
         private string description;
@@ -53,19 +53,18 @@ namespace PersonalIncomeStatement.ViewModels
             }
         }
 
-        public MainWindowViewModel(IIncomeService incomeService)
+        public IncomeAddingViewModel(IIncomeService incomeService) : base()
         {
             this._incomeService = incomeService;
-            CreateSaveCommand();
         }
 
         public override void SaveExecute()
         {
-            Task task = _incomeService.AddIncomeAsync(new Income
+            Task task = _incomeService.AddAsync(new IncomeModel
             {
                 Money = this.Money,
                 Description = this.Description,
-                ReceivedDate = DateTime.Parse(this.ReceiveDate)
+                ReceiveDate = DateTime.Parse(this.ReceiveDate)
             });
 
             task.ConfigureAwait(false);

@@ -1,4 +1,6 @@
-﻿using PersonalIncomeStatement.ViewModels;
+﻿using Microsoft.Extensions.Hosting;
+using PersonalIncomeStatement.ViewModels;
+using PersonalIncomeStatement.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace PersonalIncomeStatement
 {
@@ -21,11 +24,18 @@ namespace PersonalIncomeStatement
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindowViewModel ViewModel { get; set; }
-        public MainWindow(MainWindowViewModel viewModel)
+        IHost _host;
+        public MainWindow(IHost host)
         {
+            _host = host;
             InitializeComponent();
-            this.DataContext = viewModel;
+           
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = _host.Services.GetService<IncomeAddingView>();
+            mainWindow.Show();
         }
     }
 }

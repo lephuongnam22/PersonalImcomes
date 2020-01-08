@@ -7,6 +7,11 @@ namespace PersonalIncomeStatement.ViewModels
 {
     public class AddEditViewModelBase : ViewModelBase
     {
+        public AddEditViewModelBase()
+        {
+            
+        }
+
         public ICommand SaveCommand
         {
             get;

@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DatabaseManagement.Database;
+using DatabaseManagement.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PersonalIncomeStatement.Database;
-using PersonalIncomeStatement.Repositories;
-using PersonalIncomeStatement.Services;
 using PersonalIncomeStatement.ViewModels;
+using PersonalIncomeStatement.Views;
+using ServiceManagement.Services;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -38,10 +39,15 @@ namespace PersonalIncomeStatement
                   .ConfigureServices((context, services) =>
                   {
                       services.AddScoped<IRepositoryManager, RepositoryManager>();
-                      services.AddScoped<MainWindowViewModel, MainWindowViewModel>();
+                      services.AddScoped<IncomeAddingViewModel, IncomeAddingViewModel>();
                       services.AddScoped<PaymentAddingViewModel, PaymentAddingViewModel>();
+                      services.AddScoped<ExpenseDetailViewModel, ExpenseDetailViewModel>();
                       services.AddScoped<IIncomeService, IncomeService>();
-                      services.AddScoped<IExpensiveService, ExpensiveService>();
+
+                      services.AddScoped<PaymentAddingView, PaymentAddingView>();
+                      services.AddScoped<ExpenseDetailView, ExpenseDetailView>();
+                      services.AddScoped<IncomeAddingView, IncomeAddingView>();
+                      services.AddScoped<IExpenseService, ExpenseService>();
                       services.AddSingleton<MainWindow>();
                       services.AddDbContext<DatabaseContext>(options =>
                    options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
@@ -50,14 +56,13 @@ namespace PersonalIncomeStatement
             using (var serviceScope = _host.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<DatabaseContext>();
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
-                //context.Database.Migrate();
+                //context.Database.EnsureDeleted();
+                //context.Database.EnsureCreated();
+                context.Database.Migrate();
             }
 
             await _host.StartAsync();
             var mainWindow = _host.Services.GetService<MainWindow>();
-           
             mainWindow.Show();
         }
     }

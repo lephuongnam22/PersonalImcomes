@@ -22,4 +22,8 @@
     <Folder Include="Utilities\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceManagement\ServiceManagement.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,17 +1,19 @@
 ﻿using PersonalIncomeStatement.Models.Enums;
-using PersonalIncomeStatement.Services;
+using ServiceManagement.DTOs;
+using ServiceManagement.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace PersonalIncomeStatement.ViewModels
 {
-    public class PaymentAddingViewModel : ViewModelBase
+    public class PaymentAddingViewModel : AddEditViewModelBase
     {
         private string _description;
         private int _money;
         private string _expensiveDate;
         private ExpenseType _selectedType;
+        private readonly IExpenseService _expensiveService;
 
         public string Description 
         {
@@ -64,9 +66,20 @@ namespace PersonalIncomeStatement.ViewModels
             }
         }
 
-        public PaymentAddingViewModel(IExpensiveService expensiveService)
+        public PaymentAddingViewModel(IExpenseService expensiveService) : base()
         {
-            
+            _expensiveService = expensiveService;
+        }
+
+        public override void SaveExecute()
+        {
+            _expensiveService.AddAsync(new ExpenseModel
+            {
+                Money = Money,
+                Description = Description,
+                ExpenseDate = DateTime.Parse(ExpensiveDate),
+                ExpenseType = (DatabaseManagement.Enums.ExpenseType)Enum.Parse(typeof(DatabaseManagement.Enums.ExpenseType), SelectedType.ToString())
+            }).ConfigureAwait(false);
         }
     }
 }

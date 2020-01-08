@@ -1,4 +1,8 @@
-﻿namespace PersonalIncomeStatement.Models.Enums
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PersonalIncomeStatement.Models.Enums
 {
     public enum ExpenseType
     {

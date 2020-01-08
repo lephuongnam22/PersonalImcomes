@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace PersonalIncomeStatement.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : AddEditViewModelBase
     {
         private decimal money;
         private string description;
@@ -16,9 +16,9 @@ namespace PersonalIncomeStatement.ViewModels
 
         private readonly IIncomeService _incomeService;
 
-        public string ReceiveDate 
+        public string ReceiveDate
         {
-            get 
+            get
             {
                 return this.receiveDate;
             }
@@ -40,7 +40,7 @@ namespace PersonalIncomeStatement.ViewModels
                 this.RaisePropertyChange();
             }
         }
-        public string Description 
+        public string Description
         {
             get
             {
@@ -59,23 +59,7 @@ namespace PersonalIncomeStatement.ViewModels
             CreateSaveCommand();
         }
 
-        public ICommand SaveCommand
-        {
-            get;
-            internal set;
-        }
-
-        private bool CanExecuteSaveCommand()
-        {
-            return true;
-        }
-
-        private void CreateSaveCommand()
-        {
-            SaveCommand = new RelayCommand(SaveExecute, CanExecuteSaveCommand);
-        }
-
-        public void SaveExecute()
+        public override void SaveExecute()
         {
             Task task = _incomeService.AddIncomeAsync(new Income
             {
@@ -85,8 +69,6 @@ namespace PersonalIncomeStatement.ViewModels
             });
 
             task.ConfigureAwait(false);
-
-         
         }
     }
 }

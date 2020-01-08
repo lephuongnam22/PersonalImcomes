@@ -39,7 +39,9 @@ namespace PersonalIncomeStatement
                   {
                       services.AddScoped<IRepositoryManager, RepositoryManager>();
                       services.AddScoped<MainWindowViewModel, MainWindowViewModel>();
+                      services.AddScoped<PaymentAddingViewModel, PaymentAddingViewModel>();
                       services.AddScoped<IIncomeService, IncomeService>();
+                      services.AddScoped<IExpensiveService, ExpensiveService>();
                       services.AddSingleton<MainWindow>();
                       services.AddDbContext<DatabaseContext>(options =>
                    options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
